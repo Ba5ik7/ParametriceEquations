@@ -13,13 +13,29 @@
 import css from '../css/css.css';
 import scss from '../css/sass.scss';
 
-
-// import Js Plugins/Entities
-
-//ES6 Module
 import { MyClass } from './entities/MyClass';
 
 const wes = new MyClass('Wes');
+
+
+// The canvas setup
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let width = canvas.width = innerWidth;
+let height = canvas.height = innerHeight;
+ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+ctx.fillRect(0, 0, width, height);
+// People sometime resize the window(assholes)
+window.addEventListener('resize', () => {
+    width = canvas.width = innerWidth;
+    height = canvas.height = innerHeight;
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+    ctx.fillRect(0, 0, width, height);
+});
+
+
+
+
 
 //Stats JavaScript Performance Monitor
 import Stats from 'stats.js';

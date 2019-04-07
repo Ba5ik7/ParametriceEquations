@@ -21,18 +21,26 @@ const wes = new MyClass('Wes');
 // The canvas setup
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+let fillStyle = 'rgba(0, 0, 0, 0.9)'
 let width = canvas.width = innerWidth;
 let height = canvas.height = innerHeight;
-ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+ctx.fillStyle = fillStyle;
 ctx.fillRect(0, 0, width, height);
 // People sometime resize the window(assholes)
 window.addEventListener('resize', () => {
     width = canvas.width = innerWidth;
     height = canvas.height = innerHeight;
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+    ctx.fillStyle = fillStyle;
     ctx.fillRect(0, 0, width, height);
 });
 
+
+const loop = () => {
+    // Forever ever? FOREVER!!!
+    window.requestAnimationFrame(loop);
+}
+
+window.requestAnimationFrame(loop);
 
 
 
